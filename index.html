@@ -1,0 +1,659 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Staff Training</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+</style></head><body><article id="821519dc-58e1-4ca9-a4c8-a612ac9a98be" class="page sans"><header><h1 class="page-title">Staff Training</h1></header><div class="page-body"><h2 id="9eeb77a9-58da-450f-aa96-274f70574604" class="">Packaging </h2><ul id="231548be-e4eb-457e-a19c-08e69ea270bf" class="toggle"><li><details open=""><summary><strong>Weighing</strong></summary><figure id="51979bd4-8d82-4870-a1e5-cb5acdcbd6e6"><div class="source"><iframe width="560" height="315" src="https://www.youtube.com/embed/HuCYwVZNOA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></figure><ol type="1" id="51a76bf1-c501-4d40-9dbc-af2373af58a5" class="numbered-list" start="1"><li>Choose grams on scale</li></ol><ol type="1" id="699cc90d-ba24-4428-8339-50a07ded5507" class="numbered-list" start="2"><li>Count 75 of heavier product, 100 of lighter product. The more product the more accurate the count is. </li></ol><ol type="1" id="75dff017-1cd9-4c4f-abad-333158066e4b" class="numbered-list" start="3"><li>Lay product on scale and hold the PCS button</li></ol><ol type="1" id="5dff1c72-32f9-4e74-b0b6-c9a9bb421961" class="numbered-list" start="4"><li>Press M to select the correct number of products on scale</li></ol><ol type="1" id="186d8940-f263-40f5-9c29-0266709738d7" class="numbered-list" start="5"><li>Press PCS again to lock in the number </li></ol><p id="d817922a-f465-4a21-9c63-1b23c443c1a3" class="">
+</p></details></li></ul><ul id="38e7fd0c-43d1-467b-bc9f-62bbb33bfe08" class="toggle"><li><details open=""><summary><strong>Product Checking</strong></summary><ul id="2a951735-5b0a-42e7-b7ba-63812b449098" class="bulleted-list"><li style="list-style-type:disc">Fan through each page (all products including wine labels)</li></ul><ul id="7424f7a7-8d6a-4de0-b649-7c80357fa925" class="bulleted-list"><li style="list-style-type:disc">Check colors, paper stock, for streaks, quality</li></ul><ul id="d5f8b849-4a93-4fa9-a1d0-ec1056abeeca" class="bulleted-list"><li style="list-style-type:disc">Confirm you have the correct cover sheet. You can verify this by checking the SKU on your time sheet against the SKU on the cover sheet.</li></ul><ul id="7e052470-ef74-460c-89b6-ff23a3e2c76c" class="bulleted-list"><li style="list-style-type:disc">If packaging wine labels, fan through wine labels to make sure it includes the correct pages.</li></ul></details></li></ul><ul id="90b20be7-33ea-4408-9b5f-3eb28b0387da" class="toggle"><li><details open=""><summary><strong>Standards &amp; other tips</strong></summary><ul id="fcc20ca6-bfda-4d2c-92fa-5ed2d98b74da" class="bulleted-list"><li style="list-style-type:disc">Rubber band wine labels in stacks of 25</li></ul><ul id="7df1601e-ef33-40e3-a138-926dc01db26e" class="bulleted-list"><li style="list-style-type:disc">Some products we receive will include overages from our printer. Package as many sets as you can with the supplies you have.</li></ul><ul id="a1f2b8ff-0fa2-49f4-86b7-e84d122036b2" class="bulleted-list"><li style="list-style-type:disc">Our piece rates are cushioned so that you have time to check products. Our customers are ruthless. Mistakes like a shorted set or damaged product being packaged could result in a bad review that could destroy an entire listing.</li></ul><ul id="ee7e03d1-e9f9-4db4-97d4-6bbc763f6893" class="bulleted-list"><li style="list-style-type:disc">If you have damaged product, send photos to Cooper for further instructions.</li></ul><p id="7df4ef9b-d1fd-4e82-a745-c10b599b6315" class="">
+</p></details></li></ul><h2 id="9ba90991-a154-486b-b2b3-699cda7372a6" class="">Pick Up (Thursdays)</h2><ul id="b1731561-eb23-48a1-bd31-ffb58e2295fb" class="bulleted-list"><li style="list-style-type:disc">All of your work will be labeled on a designated set of shelves for pick-up. This includes cover sheets.</li></ul><ul id="2d9b44db-5812-433e-aa4f-da9df803766d" class="bulleted-list"><li style="list-style-type:disc">Open up your app the the &quot;Pick-Up&quot; page for a shopping list of everything you need to pack for the week.</li></ul><ul id="58834055-bdf0-4fc6-b274-c86bf42148fd" class="bulleted-list"><li style="list-style-type:disc">If picking up multiple bag sizes, mark the bag number on the outside so that you know where to return more easily</li></ul><h2 id="1e3fe056-ebe3-42f0-9d59-312bfce714c9" class="">Drop Off (Thursdays)</h2><ul id="d32e0711-86c9-476a-8d02-a88efb68d689" class="bulleted-list"><li style="list-style-type:disc">Return products to the drop off shelf</li></ul><div id="a65903ec-9d27-4811-911b-274c2789bc82" class="column-list"><div id="1a5be7af-ab96-48bb-ae3c-379a71276552" style="width:50%" class="column"><ul id="c09a3c0d-db06-40d4-b8ff-69bf76866eec" class="bulleted-list"><li style="list-style-type:disc">On the outside of the box include the following in sharpie:<ul id="66722232-cf6f-485d-8fc8-d7af467971bc" class="bulleted-list"><li style="list-style-type:circle">SKU</li></ul><ul id="32350ab7-3609-4640-ae4c-19af67fd37e7" class="bulleted-list"><li style="list-style-type:circle">Quantity of finished product</li></ul><ul id="4e6d8819-929a-48d3-a8d1-110a48afe12e" class="bulleted-list"><li style="list-style-type:circle">Box Size</li></ul><ul id="6a154cae-c08e-406f-9cb0-30362d8ea5c9" class="bulleted-list"><li style="list-style-type:circle">Box Weight</li></ul></li></ul></div><div id="6b75df1e-2101-46b7-90b2-6824a1d08336" style="width:50%" class="column"><figure id="6cbec2eb-2202-4fea-a81f-72eaa738186d" class="image"><a href="Staff%20Training%206cbec2eb22024feaa81f72eaa738186d/8706A165-0E2E-47B5-8852-E3BAD68C451A.jpeg"><img style="width:336px" src="https://i.ibb.co/LN4BM0D/8706-A165-0-E2-E-47-B5-8852-E3-BAD68-C451-A.jpg"/></a></figure></div></div><ul id="bfbbb537-3385-4eb2-91bb-9352b8947846" class="bulleted-list"><li style="list-style-type:disc">Box, package and tape any full cases of products.</li></ul><ul id="e0008ce8-97b1-442a-b903-e1a45474ca62" class="bulleted-list"><li style="list-style-type:disc">Return all unused bags to the correct locations (a ruler is hanging on the shelf to help.)</li></ul><ul id="b71fff65-3896-4b94-b07d-5fb3d584ce8a" class="bulleted-list"><li style="list-style-type:disc">Return extra product to correct boxes in the &quot;Extras&quot; are</li></ul><ul id="6d40f2c0-312e-410d-a896-a22a4a99cbca" class="bulleted-list"><li style="list-style-type:disc">If you have any product shortages, notify Cooper.</li></ul><ul id="956bddf9-f627-481e-bd83-a0928fe1684c" class="bulleted-list"><li style="list-style-type:disc">Submit your schedule on the app </li></ul><h2 id="0f47e886-638a-4a62-814b-d02757f4d1dd" class="">Working in the warehouse </h2><ul id="d9c092b4-8768-4a29-bff3-082e1d966a8b" class="bulleted-list"><li style="list-style-type:disc">You are welcome to schedule time to work from the warehouse if you would like. <ul id="ddc6ae9d-3163-45fe-b221-022ce2f70910" class="bulleted-list"><li style="list-style-type:circle">Kids are permitted in the warehouse when you are the only employee at that time.</li></ul><ul id="c39f26f8-4f33-49dc-a17d-373915b6952e" class="bulleted-list"><li style="list-style-type:circle">Please keep food in the break room, or if you eat at the work tables, please wipe them down afterwards.</li></ul><ul id="11c6e88e-a599-4383-a9bb-1ecb74e6c87c" class="bulleted-list"><li style="list-style-type:circle">Break down boxes when you leave and try to fill the recycling bin vertically so they’re easier to transport to the dumpster.</li></ul><ul id="9c082995-d99d-4eae-94ed-c767f06a5080" class="bulleted-list"><li style="list-style-type:circle">Vacuum around your work area before you leave if needed.</li></ul></li></ul><h2 id="6bb41b39-34bb-4a65-9800-dcf14b45ae71" class="">Time Off</h2><p id="78ad2b50-d17c-47b7-b317-ce8eee322cd0" class="">Product is ordered and schedules are made well in advance so we would really appreciate notice ASAP, but at least 3 weeks prior to your scheduled time off.</p><p id="d46328a9-c0b2-4dae-83f4-05d6fe65a8ec" class="">
+</p></div></article></body></html>
